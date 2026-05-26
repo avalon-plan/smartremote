@@ -27,21 +27,21 @@ keymap = [
     [
         ["AudioVolUp",   "AudioVolDown",   "Right"],
         ["MouseWheelUp",    "Left", "MouseWheelDown"],
-        ["PageUp",       "TT(1)",       "PageDown"], # 第9键：长按或连击3下进 Layer 1
+        ["PageUp",       "TO(1)",       "PageDown"], # 第9键：长按或连击3下进 Layer 1
     ],
 
     # ------------------ LAYER 1 (鼠标导航层) ------------------
     [
         ["MouseWheelUp",   "Up",           "MouseWheelDown"],
         ["Left",           "MouseBtnLeft", "Right"],
-        ["_",              "TT(2)",         "Down"], # 第9键：长按或连击3下进 Layer 2
+        ["_",              "TO(2)",         "Down"], # 第9键：长按或连击3下进 Layer 2
     ],
 
     # ------------------ LAYER 2 (网页办公层) ------------------
     [
         ["F5",             "Ctrl + W",     "Ctrl + T"], # 刷新、关标签、开标签
         ["Ctrl + Z",       "Ctrl + C",     "Ctrl + V"], # 撤销、复制、粘贴
-        ["Home",           "TT(3)",          "End"], # 第9键：长按或连击3下进 Layer 3
+        ["Home",           "TO(3)",          "End"], # 第9键：长按或连击3下进 Layer 3
     ],
 
     # ------------------ LAYER 3 (终极安全层/一键回家) ------------------
@@ -53,9 +53,6 @@ keymap = [
     ],
 ]
 
-[rmk]
-# 核心省电配置：60 秒完全没有按键操作后，键盘自动进入深度休眠
-split_central_sleep_timeout_seconds = 60
 
 [ble]
 enabled = true
