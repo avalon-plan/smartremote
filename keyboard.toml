@@ -53,9 +53,9 @@ keymap = [
     ],
 ]
 
-[behavior]
-# 核心省电配置：60000 毫秒（60 秒）完全没有按键操作后，键盘自动进入深度休眠
-async_idle_timeout = 60000
+[rmk]
+# 核心省电配置：60 秒完全没有按键操作后，键盘自动进入深度休眠
+split_central_sleep_timeout_seconds = 60
 
 [ble]
 enabled = true
