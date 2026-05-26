@@ -26,23 +26,26 @@ keymap = [
     ],
     # Layer 1
     [
-        ["TO(1)", "TT(1)", "TG(2)"],
-        ["DF(1)", "_", "_"],
+        ["_", "_", "_"],
+        ["_", "_", "_"],
         ["_", "_", "_"],
     ],
     # Layer 2 (新增)
     [
-        ["MediaPlay", "MediaPause", "MediaNext"],
+        ["_", "_", "_"],
         ["_", "_", "_"],
         ["_", "_", "_"],
     ],
     # Layer 3 (新增)
     [
-        ["AudioMute", "_", "_"],
+        ["_", "_", "_"],
         ["_", "_", "_"],
         ["_", "_", "_"],
     ],
 ]
+
+[rmk]
+split_central_sleep_timeout_seconds = 60
 
 [ble]
 enabled = true
