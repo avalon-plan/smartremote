@@ -16,20 +16,46 @@ col_pins = ["P1_11", "P0_10", "P0_09"]
 [layout]
 rows = 3
 cols = 3
-layers = 2
+layers = 4 # 修改：已调整为 4 层
+
+# Layer 0: 基础媒体层（灯灭）
+# Layer 1: 鼠标与导航层（TT长按/连击进入，灯常亮）
+# Layer 2: 网页与翻页层（TT长按/连击进入，灯呼吸）
+# Layer 3: 终极Fn层/一键回家（单点任何层的第9键，快闪3下回家，灯灭）
 keymap = [
+    # ------------------ LAYER 0 (基础媒体层) ------------------
     [
-        ["AudioVolUp", "AudioVolDown", "Right"],
-        ["MouseWheelUp", "Left", "MouseWheelDown"],
-        ["PageUp", "Down", "PageDown"],
+        ["AudioVolUp",   "AudioVolDown",   "Right"],
+        ["MouseWheelUp",    "Left", "MouseWheelDown"],
+        ["PageUp",       "TT(1)",       "PageDown"], # 第9键：长按或连击3下进 Layer 1
     ],
+
+    # ------------------ LAYER 1 (鼠标导航层) ------------------
     [
-        ["TO(1)", "TT(1)", "TG(2)"],
-        ["DF(1)", "_", "_"],
-        ["_", "_", "_"],
+        ["MouseWheelUp",   "Up",           "MouseWheelDown"],
+        ["Left",           "MouseBtnLeft", "Right"],
+        ["_",              "TT(2)",         "Down"], # 第9键：长按或连击3下进 Layer 2
+    ],
+
+    # ------------------ LAYER 2 (网页办公层) ------------------
+    [
+        ["F5",             "Ctrl + W",     "Ctrl + T"], # 刷新、关标签、开标签
+        ["Ctrl + Z",       "Ctrl + C",     "Ctrl + V"], # 撤销、复制、粘贴
+        ["Home",           "TT(3)",          "End"], # 第9键：长按或连击3下进 Layer 3
+    ],
+
+    # ------------------ LAYER 3 (终极安全层/一键回家) ------------------
+    # 无论你在 1、2、3 哪一层，只要单点一下第9键，触发 TO(0) 即可瞬间回到基础层！
+    [
+        ["_",              "_",            "_"],
+        ["_",              "_",            "_"],
+        ["_",              "TO(0)",            "_"], # 第9键：一键重置，瞬间拔寨回营到 Layer 0
     ],
 ]
 
+[behavior]
+# 核心省电配置：60000 毫秒（60 秒）完全没有按键操作后，键盘自动进入深度休眠
+async_idle_timeout = 60000
 
 [ble]
 enabled = true
