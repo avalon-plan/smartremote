@@ -1,3 +1,9 @@
+# =============================================================
+#  RMK keyboard.toml
+#  nice!nano (nRF52840) — 3x3 matrix — Bluetooth (BLE) macropad
+#  Diode direction: COL -> ROW  (col2row, RMK default)
+# =============================================================
+
 [keyboard]
 name = "smartremote"
 product_name = "smartremote"
@@ -5,17 +11,30 @@ vendor_id = 0x4c4b
 product_id = 0x4643
 manufacturer = "RMK"
 chip = "nrf52840"
+# nice!nano v2. If you have the original (v1) board, use:  board = "nice!nano"
+board = "nice!nano_v2"
 
+# -------------------------------------------------------------
+# Physical matrix wiring
+# -------------------------------------------------------------
+# NOTE on naming: current RMK (v0.8+/main) uses `row_pins` / `col_pins`.
+#   Your input_pins  (行 / ROW) -> row_pins
+#   Your output_pins (列 / COL) -> col_pins
+# (Older RMK v0.7 used `input_pins` / `output_pins` instead.)
 [matrix]
-# Row and col pins are mandatory
-row_pins = ["P0_20", "P0_22", "P0_24"]
-col_pins = ["P1_11", "P0_10", "P0_09"]
-# RMK uses col2row as the default matrix diode direction, if you want to use a row2col matrix, add `row2col = true`
-# row2col = true
+row_pins = ["P0_20", "P0_22", "P0_24"]   # ROW: D3, D4, D5
+col_pins = ["P1_11", "P0_10", "P0_09"]   # COL: D16, D10, D9-area pins
+# col2row is the default — diodes point COL -> ROW — so no `row2col` needed.
+# matrix_type = "normal"   # default, can be omitted
 
+# -------------------------------------------------------------
+# Layout + default keymap
+# -------------------------------------------------------------
 [layout]
 rows = 3
 cols = 3
+layers = 1
+# (row, col) order in which the keys below are listed. Zero-based.
 layers = 4
 keymap = [
     # Layer 0 (基础层)
@@ -43,10 +62,12 @@ keymap = [
         ["_", "_", "_"],
     ],
 ]
-
 [rmk]
 split_central_sleep_timeout_seconds = 60
 
+# -------------------------------------------------------------
+# Bluetooth
+# -------------------------------------------------------------
 [ble]
 enabled = true
 # vddh has an internal voltage divider
