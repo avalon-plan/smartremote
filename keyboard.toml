@@ -11,8 +11,6 @@ vendor_id = 0x4c4b
 product_id = 0x4643
 manufacturer = "RMK"
 chip = "nrf52840"
-# nice!nano v2. If you have the original (v1) board, use:  board = "nice!nano"
-board = "nice!nano_v2"
 
 # -------------------------------------------------------------
 # Physical matrix wiring
